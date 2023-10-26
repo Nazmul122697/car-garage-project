@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- bootstrap css link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <!-- bootstrap icon link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    <!-- custom css link -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/dash-style.css" />
+
+    <style>
+        /* ============Download Invoice Start============== */
+        .receipt-main-container {
+            border: 1px solid #595757;
+        }
+
+        .receipt-header {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            padding: 30px;
+            border-bottom: 1px solid #595757;
+        }
+
+        .receipt-header-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .receipt-subtitle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            font-size: 12px;
+            color: #222222;
+        }
+
+        .receipt-subtitle .website {
+            color: #262161;
+        }
+
+        .receipt-gov-logo img {
+            width: 80px;
+        }
+
+        .receipt-lab-logo img {
+            width: 80px;
+        }
+
+        .receipt-body {
+            padding: 30px 30px 60px;
+        }
+
+        .receipt-invoice-title {
+            color: #222222;
+            border: 1px solid #222222;
+            font-weight: 700;
+            padding: 10px;
+            text-align: center;
+            width: 150px;
+            margin: 0 auto;
+        }
+
+        .invoice-body-top-items {
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .receipt-body-text {
+            color: #222222;
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .receipt-body-invoice-text {
+            color: #222222;
+            font-weight: 700;
+            font-size: 10px;
+        }
+
+        .receipt-body-invoice-no {
+            color: #595757;
+            font-weight: 500;
+            font-size: 12px;
+        }
+
+        .invoice-barcode-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .invoice-barcode-area img {
+            width: 100px;
+        }
+
+        .invoice-details-area {
+            font-weight: 600;
+            font-size: 12px;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            margin-bottom: 0.5rem;
+        }
+
+        .invoice-details-area p:nth-child(1) {
+            grid-column: 1 / span 2;
+        }
+
+        .invoice-details-area p:nth-child(2) {
+            grid-column: 3 / 4;
+        }
+
+        .invoice-details-area p:nth-child(3) {
+            grid-column: 4 / -1;
+        }
+
+        .invoice-price-table {
+            margin: 20px 0;
+        }
+
+        .invoice-price-table table {
+            width: 100%;
+            font-size: 12px;
+        }
+
+        .invoice-price-table thead{
+            background-color: rgba(220, 218, 240, 0.6);
+        }
+        .invoice-price-table thead th,
+        .invoice-price-table tbody td {
+            border: 1px solid;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .invoice-price-table tfoot tr th {
+            padding: 10px;
+            border: 1px solid;
+        }
+
+        .invoice-price-table tfoot tr th:nth-child(1) {
+            text-align: end;
+        }
+
+        .invoice-price-table tfoot tr th:nth-child(2) {
+            text-align: center;
+        }
+
+        .invoice-details-data{
+            font-weight: 400;
+        }
+
+        .invoice-footer {
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            color: #222222;
+        }
+
+        .invoice-footer-direction {
+            font-weight: 700;
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .invoice-footer-time {
+            font-size: 12px;
+        }
+        /* ============Download Invoice End============== */
+    </style>
+
+    <title>Venture</title>
+</head>
+
+<body>
+    <header>
+        <!-- top-header start -->
+        <section class="top-header-bg-color d-none d-md-block">
+            <div class="nav-container">
+                <div class="text-white small-text-12 fw-medium d-flex justify-content-between">
+                    <p class="py-1">
+                        IT Services to Automate Laboratory Test Report Transfer and Data
+                        Exchange
+                    </p>
+                    <div class="d-flex gap-4">
+                        <p class="py-1 pe-3 border-end border-white">
+                            <span id="day">day</span>,
+                            <span id="daynum">00</span>
+                            <span id="month">month</span>
+                            <span id="year">0000</span>
+                        </p>
+                        <select class="language-change small-text-12">
+                            <option selected>বাংলা</option>
+                            <option value="1">English</option>
+                        </select>
+                        <!-- <p class="py-1">বাংলা</p> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- top-header end -->
+    </header>
+
+    <div class="d-flex">
+        <!-- sidebar for desktop start -->
+        <aside class="dashboard-sidebar-bg d-none d-lg-block">
+            <nav class="dashboard-sidebar">
+                <!-- <h5 class="text-white pb-5">
+                    Customer Portal
+                </h5> -->
+                <div class="db-sidebar-logo">
+                    <img src="../assets/logo/main-logo.png" alt="logo">
+                </div>
+                <ul class="d-flex flex-column gap-1">
+                    <li>
+                        <div class="dashboard-sidebar-option">
+                            <a href="../customer-dashboard/index.html" class="d-flex align-items-center gap-3">
+                                <img src="../assets/icon/dashboard.svg" alt="dashboard">
+                                <span>Dashboard</span>
+                            </a>
+                            <div class="sidebar-vertical-line"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dashboard-sidebar-option">
+                            <a href="../customer-dashboard/sample-reg-entry.html"
+                                class="d-flex align-items-center gap-3">
+                                <img src="../assets/icon/registration.svg" alt="registration">
+                                <span>Sample Registration</span>
+                            </a>
+                            <div class="sidebar-vertical-line"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dashboard-sidebar-option">
+                            <a href="../customer-dashboard/sample-test-current-status.html"
+                                class="d-flex align-items-center gap-3">
+                                <img src="../assets/icon/registration.svg" alt="registration">
+                                <span>Sample Test Status</span>
+                            </a>
+                            <div class="sidebar-vertical-line"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dashboard-sidebar-option">
+                            <a href="../customer-dashboard/rejected-sample.html"
+                                class="d-flex align-items-center gap-3">
+                                <img src="../assets/icon/report.svg" alt="rejected">
+                                <span>Rejected Samples</span>
+                            </a>
+                            <div class="sidebar-vertical-line"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dashboard-sidebar-option">
+                            <a href="../customer-dashboard/archive-test-report.html"
+                                class="d-flex align-items-center gap-3">
+                                <img src="../assets/icon/report.svg" alt="report">
+                                <span>Archive Test Reports</span>
+                            </a>
+                            <div class="sidebar-vertical-line"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dashboard-sidebar-option">
+                            <a href="../customer-dashboard/invoice.html" class="d-flex align-items-center gap-3">
+                                <img src="../assets/icon/report.svg" alt="invoices">
+                                <span>Invoices</span>
+                            </a>
+                            <div class="sidebar-vertical-line"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dashboard-sidebar-option">
+                            <a href="../customer-dashboard/change-request.html" class="d-flex align-items-center gap-3">
+                                <img src="../assets/icon/report.svg" alt="invoices">
+                                <span>Change Request</span>
+                            </a>
+                            <div class="sidebar-vertical-line"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dashboard-sidebar-option position-relative">
+                            <a href="../customer-dashboard/edit-profile.html"
+                                class="border-0 bg-transparent d-flex align-items-center gap-3">
+                                <div class="fs-5 text-white">
+                                    <i class="bi bi-person-fill"></i>
+                                </div>
+                                <span>My Profile</span>
+                            </a>
+                            <div class="sidebar-vertical-line"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dashboard-sidebar-option">
+                            <button class="border-0 bg-transparent d-flex align-items-center gap-3">
+                                <img src="../assets/icon/logout.svg" alt="logout">
+                                <span>Logout</span>
+                            </button>
+                            <div class="sidebar-vertical-line"></div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <!-- sidebar for desktop end -->
+
+        <!-- sidebar for mobile/tab start -->
+        <aside class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+            aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header justify-content-end">
+                <!-- <h5 class="offcanvas-title" id="offcanvasExampleLabel">Customer Portal</h5> -->
+                <button type="button" class="text-white border-0 bg-transparent fs-5" data-bs-dismiss="offcanvas"
+                    aria-label="Close">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+            <div class="offcanvas-body pt-0 px-0">
+                <div class="db-sidebar-logo">
+                    <img src="../assets/logo/main-logo.png" alt="logo">
+                </div>
+                <ul class="d-flex flex-column gap-1">
+                    <li>
+                        <div class="dashboard-sidebar-option">
+                            <a href="../customer-dashboard/index.html" class="d-flex align-items-center gap-3">
+                                <img src="../assets/icon/dashboard.svg" alt="dashboard">
+                                <span>Dashboard</span>
+                            </a>
+                            <div class="sidebar-vertical-line"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dashboard-sidebar-option">
+                            <a href="../customer-dashboard/sample-reg-entry.html"
+                                class="d-flex align-items-center gap-3">
+                                <img src="../assets/icon/registration.svg" alt="registration">
+                                <span>Sample Registration</span>
+                            </a>
+                            <div class="sidebar-vertical-line"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dashboard-sidebar-option">
+                            <a href="../customer-dashboard/sample-test-current-status.html"
+                                class="d-flex align-items-center gap-3">
+                                <img src="../assets/icon/registration.svg" alt="registration">
+                                <span>Sample Test Status</span>
+                            </a>
+                            <div class="sidebar-vertical-line"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dashboard-sidebar-option">
+                            <a href="../customer-dashboard/rejected-sample.html"
+                                class="d-flex align-items-center gap-3">
+                                <img src="../assets/icon/report.svg" alt="rejected">
+                                <span>Rejected Samples</span>
+                            </a>
+                            <div class="sidebar-vertical-line"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dashboard-sidebar-option">
+                            <a href="../customer-dashboard/archive-test-report.html"
+                                class="d-flex align-items-center gap-3">
+                                <img src="../assets/icon/report.svg" alt="report">
+                                <span>Archive Test Reports</span>
+                            </a>
+                            <div class="sidebar-vertical-line"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dashboard-sidebar-option">
+                            <a href="../customer-dashboard/invoice.html" class="d-flex align-items-center gap-3">
+                                <img src="../assets/icon/report.svg" alt="invoices">
+                                <span>Invoices</span>
+                            </a>
+                            <div class="sidebar-vertical-line"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dashboard-sidebar-option">
+                            <a href="../customer-dashboard/change-request.html" class="d-flex align-items-center gap-3">
+                                <img src="../assets/icon/report.svg" alt="invoices">
+                                <span>Change Request</span>
+                            </a>
+                            <div class="sidebar-vertical-line"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dashboard-sidebar-option position-relative">
+                            <a href="../customer-dashboard/edit-profile.html"
+                                class="border-0 bg-transparent d-flex align-items-center gap-3">
+                                <div class="fs-5 text-white">
+                                    <i class="bi bi-person-fill"></i>
+                                </div>
+                                <span>My Profile</span>
+                            </a>
+                            <div class="sidebar-vertical-line"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dashboard-sidebar-option">
+                            <button class="border-0 bg-transparent d-flex align-items-center gap-3">
+                                <img src="../assets/icon/logout.svg" alt="logout">
+                                <span>Logout</span>
+                            </button>
+                            <div class="sidebar-vertical-line"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <!-- sidebar for mobile/tab end -->
+
+        <main class="dashboard-main">
+            <!-- main navbar start -->
+            <nav class="shadow py-2 px-5">
+                <ul class="main-navbar">
+                    <li class="me-auto">
+                        <div class="search-btn d-lg-none">
+                            <button class="py-1 fs-6" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                <i class="bi bi-arrow-bar-right"></i>
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="position-relative">
+                            <a href="/">
+                                <img src="../assets/icon/notification.svg" alt="notification" class="main-nav-icon">
+                            </a>
+                            <div class="notification-badge"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <div class="d-flex align-items-center gap-2 main-navbar-profile">
+                                <p class="d-flex gap-1 flex-column align-items-center">
+                                    <span class="small-text-12">Hello! <a href="../customer-dashboard/edit-profile.html" class="fw-semibold navbar-user-name">Abid Hasan</a></span>
+                                    <span class="small-text-10">Customer Portal</span>
+                                </p>
+                                <a href="../customer-dashboard/edit-profile.html">
+                                    <img src="../assets/icon/user-avatar.svg" alt="avatar" class="main-nav-avatar">
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <!-- main navbar end -->
+
+            <!-- main-body start -->
+            <div>
+                <div class="px-5 dashboard-main-body-padding">
+                    <!-- sample-registration:Receipt start -->
+                    <div>
+                        <h1 class="dashboard-title mb-5 text-center">
+                            <span>Preview & Download Invoice</span>
+                        </h1>
+
+                        <!-- payment-receipt start -->
+                        <section class="receipt-main-container">
+                            <!-- receipt header start -->
+                            <div class="receipt-header">
+                                <div class="receipt-gov-logo">
+                                    <img src="../assets/logo/Government-of-Bangladesh.png" alt="bd-gov-logo">
+                                </div>
+                                <div class="receipt-header-text">
+                                    <h2 class="mb-3 text-lg-start dashboard-title">Government of the People’s Republic
+                                        of Bangladesh</h2>
+                                    <div class="receipt-subtitle">
+                                        <p>Office of the Quality Assurance Manager</p>
+                                        <p>Quality Control Laboratory</p>
+                                        <p class="website">qamdhaka.fisheries.gov.bd</p>
+                                        <p>Telephone NO.: <span>+88-2224442355</span>, Email:
+                                            <span>qamdhaka@fisheries.gov.bd</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="receipt-lab-logo">
+                                    <img src="../assets/logo/laboratory-logo.png" alt="lab-logo">
+                                </div>
+                            </div>
+                            <!-- receipt header end -->
+
+                            <!-- receipt body start -->
+                            <div class="receipt-body">
+                                <p class="receipt-invoice-title">Invoice</p>
+                                <div class="invoice-body-top-items">
+                                    <p class="receipt-body-text">Lab Code: <span>ED-346</span></p>
+                                    <p class="receipt-body-text">Applicant ID: <span>0321</span></p>
+                                    <p class="receipt-body-text">Date: <span>10/01/2023</span></p>
+                                    <div class="invoice-barcode-area">
+                                        <p class="receipt-body-invoice-text">Invoice No. <span>123456</span></p>
+                                        <img src="../assets/icon/bar-code.svg" alt="invoice-bar" class="bar-code-img">
+                                        <p class="receipt-body-invoice-no">1 2 3 4 5 6</p>
+                                    </div>
+                                </div>
+                                <!-- invoice details -->
+                                <div>
+                                    <div class="invoice-details-area">
+                                        <p>Applicant Name</p>
+                                        <p>:</p>
+                                        <p class="invoice-details-data">Alamin Khan</p>
+                                    </div>
+                                    <div class="invoice-details-area">
+                                        <p>Mobile No.</p>
+                                        <p>:</p>
+                                        <p class="invoice-details-data">01744448822</p>
+                                    </div>
+                                    <div class="invoice-details-area">
+                                        <p>Email Address</p>
+                                        <p>:</p>
+                                        <p class="invoice-details-data">alamin@gmail.com</p>
+                                    </div>
+                                    <div class="invoice-details-area">
+                                        <p>Applicant Address</p>
+                                        <p>:</p>
+                                        <p class="invoice-details-data">9/A, Dhanmondi, Dhaka 1209, Bangladesh</p>
+                                    </div>
+                                    <div class="invoice-details-area">
+                                        <p>Test Name</p>
+                                        <p>:</p>
+                                        <p class="invoice-details-data">Chemical-Hormone Estradia</p>
+                                    </div>
+                                    <div class="invoice-details-area">
+                                        <p>Sample Type</p>
+                                        <p>:</p>
+                                        <p class="invoice-details-data">Live Eel</p>
+                                    </div>
+                                    <div class="invoice-details-area">
+                                        <p>Parameters</p>
+                                        <p>:</p>
+                                        <p class="invoice-details-data">Chemical-Hormone Estradial- Proximate Analysis (5)</p>
+                                    </div>
+                                </div>
+                                <!-- price table -->
+                                <div class="invoice-price-table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Test Parameter</th>
+                                                <th>Qty</th>
+                                                <th>Unit Price</th>
+                                                <th>Sub Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Tylosin</td>
+                                                <td><span class="ordered-product-qty">1</span></td>
+                                                <td>৳ <span class="ordered-product-unit-price">500</span></td>
+                                                <td>৳ <span class="ordered-product-subtotal-price">00</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Oxalinic Acid</td>
+                                                <td><span class="ordered-product-qty">1</span></td>
+                                                <td>৳ <span class="ordered-product-unit-price">400</span></td>
+                                                <td>৳ <span class="ordered-product-subtotal-price">00</span></td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th colspan="3">Total :</th>
+                                                <th>৳ <span class="ordered-product-total-price">00</span></th>
+                                            </tr>
+                                            <tr>
+                                                <th colspan="3">VAT (15%) :</th>
+                                                <th>৳ <span class="product-vat">00</span></th>
+                                            </tr>
+                                            <tr>
+                                                <th colspan="3">Grand Total :</th>
+                                                <th>৳ <span class="ordered-product-grandtotal-price">00</span></th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <!-- paid via -->
+                                <div>
+                                    <p class="fw-bold small-text-12">Paid via: <span>Card</span></p>
+                                </div>
+                            </div>
+                            <!-- receipt body end -->
+
+                            <!-- receipt footer start -->
+                            <div class="invoice-footer">
+                                <div class="invoice-footer-direction">
+                                    <p>বিশেষ নির্দেশনাঃ</p>
+                                    <p>স্যাম্পেল জমা দেওয়ার সময় অবশ্যই মানি রিসিটটি সঙ্গে নিয়ে আসবেন।</p>
+                                </div>
+                                <div class="invoice-footer-time">
+                                    <p>Receipt generated on <span>10/01/23</span> at <span>11:00 am</span></p>
+                                </div>
+                            </div>
+                            <!-- receipt footer end -->
+                        </section>
+                        <!-- payment-receipt end -->
+                    </div>
+                    <!-- sample-registration:Receipt end -->
+
+                    <div class="search-btn mt-5 w-50 mx-auto">
+                        <button class="small-text-12 py-2">
+                            Download Money Receipt
+                        </button>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <button class="border-0 bg-transparent small-text-12 fw-semibold text-secondary">Print
+                            Receipt</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- main-body end -->
+    </div>
+
+    <footer class="footer-bg">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="d-flex flex-column align-items-center">
+                        <div>
+                            <h3 class="footer-title">Quick Links</h3>
+                            <ul class="footer-nav-link">
+                                <li><a href="">About DLS</a></li>
+                                <li>
+                                    <a href="">Latest status of application</a>
+                                </li>
+                                <li>
+                                    <a href="">Frequently Asked Questions</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex flex-column align-items-center">
+                        <div>
+                            <h3 class="footer-title">LEGAL</h3>
+                            <ul class="footer-nav-link">
+                                <li>
+                                    <a href="">Terms of Service</a>
+                                </li>
+                                <li><a href="">Help desk</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex flex-column align-items-center">
+                        <div>
+                            <h3 class="footer-title">COMMUNICATION</h3>
+                            <ul class="footer-nav-link">
+                                <li>
+                                    <a href="">info@dls.gov.bd</a>
+                                </li>
+                                <li>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <i class="bi bi-telephone"></i>
+                                        <span>16358</span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="text-center social-icon d-flex align-items-center gap-3">
+                                <a href="" target="_blank"> <i class="bi bi-facebook"></i></a>
+                                <a href="" target="_blank"><i class="bi bi-linkedin"></i></a>
+                                <a href="" target="_blank"><i class="bi bi-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="mb-0" />
+            <div class="footer-grid-two py-3">
+                <div class="d-flex align-items-center justify-content-center gap-3 gap-lg-1 footer-planning">
+                    <p class="text-center small-text-12">Planning and Implementation</p>
+                    <div class="d-flex align-items-center justify-content-center gap-3">
+                        <div class="footer-img">
+                            <a href="https://www.usda.gov/" title=" U.S. DEPARTMENT OF AGRICULTURE" target="_blank">
+                                <img src="../assets/logo/footer-logo-1.png" alt="logo" />
+                            </a>
+                        </div>
+                        <div class="footer-img">
+                            <a href="https://www.landolakesventure37.org/" title="LAND O'LAKES VENTURE37"
+                                target="_blank">
+                                <img src="../assets/logo/footer-logo-2.png" alt="logo" />
+                            </a>
+                        </div>
+                        <div class="footer-img">
+                            <a href="" title="BANGLADESH TRADE FACILITATION" target="_blank">
+                                <img src="../assets/logo/footer-logo-3.png" alt="logo" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p class="copy-right">
+                        Copyright &copy; 2023 All Rights Reserved <br />
+                        Government of the People's Republic of Bangladesh
+                    </p>
+                </div>
+                <div>
+                    <div class="technical gap-3 gap-lg-1">
+                        <div>
+                            <p class="small-text-12">Designed & Developed by</p>
+                        </div>
+                        <div class="footer-img">
+                            <a href="https://nextgenitltd.com/" title="NEXTGEN INNOVATION LTD." target="_blank">
+                                <img src="../assets/logo/nextgen-log.png" alt="logo" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- bootstrap js link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+    <!-- custom js -->
+    <script src="../js/app.js"></script>
+    <script src="../js/dbCalculation.js"></script>
+    <script src="../js/date.js"></script>
+</body>
+
+</html>
